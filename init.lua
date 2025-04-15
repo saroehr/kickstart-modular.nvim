@@ -93,6 +93,11 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
 
+-- [[ Define global variables for OS name and type]]
+OS_NAME, OS_TYPE = require('get_os_name').get_os_name()
+OS_WINDOWS = 'Windows'
+OS_LINUX = 'Linux'
+
 -- [[ Setting options ]]
 require 'options'
 

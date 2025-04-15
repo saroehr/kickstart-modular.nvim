@@ -4,7 +4,16 @@
 -- you do for a plugin at the top level, you can do for a dependency.
 --
 -- Use the `dependencies` key to specify the dependencies of a particular plugin
-
+local make = 'make'
+local check_function = function()
+  return vim.fn.executeable 'make' == 1
+end
+if OS_NAME == OS_WINDOWS then
+  make = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
+  check_function = function()
+    return vim.fn.executable 'cmake' == 1
+  end
+end
 return {
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
@@ -16,13 +25,11 @@ return {
 
         -- `build` is used to run some command when the plugin is installed/updated.
         -- This is only run then, not every time Neovim starts up.
-        build = 'make',
+        build = make,
 
         -- `cond` is a condition used to determine whether this plugin should be
         -- installed and loaded.
-        cond = function()
-          return vim.fn.executable 'make' == 1
-        end,
+        cond = check_function,
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
 

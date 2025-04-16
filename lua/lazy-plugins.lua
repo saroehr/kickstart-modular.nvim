@@ -61,6 +61,13 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   { import = 'custom.plugins' },
+
+  -- NOTE: The import below can automatically add your own themes, configuration, etc from `lua/custom/themes/*.lua`
+  --    This is the easiest way to modularize your config.
+  --
+  --  Uncomment the following line and add your themes to `lua/custom/themes/*.lua` to get going.
+  { import = 'custom.themes' },
+
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!

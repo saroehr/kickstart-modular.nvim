@@ -6,7 +6,7 @@
 -- Use the `dependencies` key to specify the dependencies of a particular plugin
 local make = 'make'
 local check_function = function()
-  return vim.fn.executeable 'make' == 1
+  return vim.fn.executable 'make' == 1
 end
 if OS_NAME == OS_WINDOWS then
   make = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'

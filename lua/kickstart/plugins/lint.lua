@@ -7,9 +7,10 @@ return {
       local lint = require 'lint'
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
-        -- lua = { 'luacheck' },
-        text = { 'vale' },
         json = { 'jsonlint' },
+        yanl = { 'yamllint' },
+        text = { 'vale' },
+        zsh = { 'zsh' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,

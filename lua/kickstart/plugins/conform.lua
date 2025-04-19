@@ -30,6 +30,10 @@ return {
         end
       end,
       formatters_by_ft = {
+        xml = { 'xmlformatter' },
+        json = { 'prettier' },
+        yaml = { 'prettier' },
+        markdown = { 'prettier' },
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },

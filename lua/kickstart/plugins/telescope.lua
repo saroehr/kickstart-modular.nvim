@@ -60,7 +60,9 @@ return {
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
-        -- pickers = {}
+        pickers = {
+          colorscheme = { enable_preview = true }, -- Live-preview themes as you move through the list
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),

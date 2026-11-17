@@ -66,4 +66,7 @@ vim.opt.scrolloff = 10
 -- See `:help 'confirm'`
 vim.opt.confirm = true
 
+-- Use the terminal's own 16-color palette (matches the Terminal.app Basic profile)
+vim.opt.termguicolors = false
+
 -- vim: ts=2 sts=2 sw=2 et

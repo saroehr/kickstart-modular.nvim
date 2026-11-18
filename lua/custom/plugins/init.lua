@@ -30,4 +30,24 @@ return {
       { '<leader>gq', '<cmd>DiffviewClose<cr>', desc = 'Git diff view [Q]uit' },
     },
   },
+  { -- GitHub issues and pull requests inside Neovim (needs the `gh` CLI, logged in)
+    'pwntester/octo.nvim',
+    cmd = 'Octo',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'nvim-tree/nvim-web-devicons',
+    },
+    opts = {},
+    keys = {
+      { '<leader>gp', '<cmd>Octo pr list<cr>', desc = 'GitHub [P]ull requests' },
+      { '<leader>gi', '<cmd>Octo issue list<cr>', desc = 'GitHub [I]ssues' },
+    },
+  },
+  { -- Highlight merge conflicts and resolve them with shortcuts
+    'akinsho/git-conflict.nvim',
+    version = '*',
+    event = 'BufReadPre',
+    opts = {},
+  },
 }

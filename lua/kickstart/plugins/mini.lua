@@ -2,9 +2,6 @@ return {
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
-      -- Colorscheme (miniblue ships with mini.nvim)
-      pcall(vim.cmd.colorscheme, 'miniblue')
-
       -- Better Around/Inside textobjects
       --
       -- Examples:

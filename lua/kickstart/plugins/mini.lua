@@ -17,6 +17,18 @@ return {
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
+      -- Start screen shown when you open `nvim` with no file
+      local starter = require 'mini.starter'
+      starter.setup {
+        items = {
+          { name = 'Find file', action = 'Telescope find_files', section = 'Actions' },
+          { name = 'Search text', action = 'Telescope live_grep', section = 'Actions' },
+          { name = 'Plugins', action = 'Lazy', section = 'Actions' },
+          { name = 'Quit', action = 'qa', section = 'Actions' },
+          starter.sections.recent_files(8, true, false),
+        },
+      }
+
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin

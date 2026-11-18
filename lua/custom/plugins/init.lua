@@ -12,4 +12,13 @@ return {
       vim.cmd.colorscheme 'nord'
     end,
   },
+  { -- Lazygit inside a floating Neovim window (needs the `lazygit` CLI installed)
+    'kdheepak/lazygit.nvim',
+    lazy = true,
+    cmd = { 'LazyGit', 'LazyGitConfig', 'LazyGitCurrentFile', 'LazyGitFilter', 'LazyGitFilterCurrentFile' },
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    keys = {
+      { '<leader>gg', '<cmd>LazyGit<cr>', desc = 'Lazy[G]it' },
+    },
+  },
 }

@@ -61,7 +61,8 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- Quit the current window and discard unsaved changes (:q!)
-vim.keymap.set('n', '<leader>q', '<cmd>q!<cr>', { desc = '[Q]uit window, discard changes' })
+-- Quit shortcuts: Space q (:q, refuses if unsaved) and Space q ! (:q!, discards changes)
+vim.keymap.set('n', '<leader>q', '<cmd>q<cr>', { desc = '[Q]uit window' })
+vim.keymap.set('n', '<leader>q!', '<cmd>q!<cr>', { desc = '[Q]uit window, discard changes' })
 
 -- vim: ts=2 sts=2 sw=2 et

@@ -51,4 +51,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Open help windows in a vertical split on the right
+vim.api.nvim_create_autocmd('FileType', {
+  desc = 'Open help in a vertical split on the right',
+  group = vim.api.nvim_create_augroup('kickstart-help-vertical', { clear = true }),
+  pattern = 'help',
+  callback = function()
+    vim.cmd 'wincmd L'
+  end,
+})
+
 -- vim: ts=2 sts=2 sw=2 et

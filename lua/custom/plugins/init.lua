@@ -9,8 +9,7 @@ return {
     priority = 1000, -- Load before other plugins
     config = function()
       require('nord').setup {}
-      -- Disabled: colorscheme is set in mini.lua. Use `:colorscheme nord` to try it.
-      -- vim.cmd.colorscheme 'nord'
+      vim.cmd.colorscheme 'nord'
     end,
   },
 }

@@ -61,4 +61,10 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- Toggle mouse support on and off
+vim.keymap.set('n', '<leader>tm', function()
+  vim.o.mouse = vim.o.mouse == '' and 'a' or ''
+  print('mouse: ' .. (vim.o.mouse == '' and 'off' or 'on'))
+end, { desc = '[T]oggle [M]ouse' })
+
 -- vim: ts=2 sts=2 sw=2 et

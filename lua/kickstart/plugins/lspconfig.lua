@@ -24,9 +24,7 @@ return {
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
-      -- Trial: mini.notify replaces fidget. If it works well, delete this line; otherwise uncomment it
-      -- and remove the mini.notify block in mini.lua.
-      -- { 'j-hui/fidget.nvim', opts = { notification = { override_vim_notify = true } } },
+      { 'j-hui/fidget.nvim', opts = { notification = { override_vim_notify = true } } }, -- also shows vim.notify() messages as popups
 
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',

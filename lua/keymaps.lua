@@ -6,7 +6,7 @@
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
--- (<leader>q used to open the diagnostic list; use <leader>xx (Trouble) or <leader>sd (Telescope) instead)
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -61,8 +61,7 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- Quit shortcuts: Space q (:q, refuses if unsaved) and Space q ! (:q!, discards changes)
-vim.keymap.set('n', '<leader>q', '<cmd>q<cr>', { desc = '[Q]uit window' })
-vim.keymap.set('n', '<leader>q!', '<cmd>q!<cr>', { desc = '[Q]uit window, discard changes' })
+-- Quit the current window and discard unsaved changes (:q!)
+vim.keymap.set('n', '<leader>bq', '<cmd>q!<cr>', { desc = '[B]uffer [Q]uit, discard changes' })
 
 -- vim: ts=2 sts=2 sw=2 et

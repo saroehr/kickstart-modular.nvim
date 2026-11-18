@@ -17,7 +17,7 @@ return {
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      -- Disabled: colorscheme is now set in mini.lua (miniblue).
+      -- Disabled: the colorscheme is now set in lua/custom/plugins/init.lua (Nord).
       -- vim.cmd.colorscheme 'tokyonight-night'
     end,
   },

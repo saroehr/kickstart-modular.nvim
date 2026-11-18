@@ -17,6 +17,11 @@ return {
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
+      -- Notifications and LSP progress popups (replaces fidget.nvim)
+      local notify = require 'mini.notify'
+      notify.setup { lsp_progress = { enable = true } }
+      vim.notify = notify.make_notify()
+
       -- Start screen shown when you open `nvim` with no file
       local starter = require 'mini.starter'
       starter.setup {

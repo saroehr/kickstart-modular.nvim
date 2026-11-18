@@ -17,6 +17,19 @@ return {
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
+      -- Notifications and LSP progress popups, bottom right (replaces fidget.nvim)
+      local notify = require 'mini.notify'
+      notify.setup {
+        lsp_progress = { enable = true },
+        window = {
+          config = function()
+            local pad = vim.o.cmdheight + (vim.o.laststatus > 0 and 1 or 0)
+            return { anchor = 'SE', col = vim.o.columns, row = vim.o.lines - pad }
+          end,
+        },
+      }
+      vim.notify = notify.make_notify()
+
       -- Tab-style line along the top showing open files (buffers)
       require('mini.tabline').setup { show_icons = vim.g.have_nerd_font }
 

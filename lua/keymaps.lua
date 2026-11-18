@@ -61,7 +61,7 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- Quit the current window and discard unsaved changes (:q!)
-vim.keymap.set('n', '<leader>bq', '<cmd>q!<cr>', { desc = '[B]uffer [Q]uit, discard changes' })
+-- Quit the current window (:q refuses if there are unsaved changes)
+vim.keymap.set('n', '<leader>bq', '<cmd>q<cr>', { desc = '[B]uffer [Q]uit window' })
 
 -- vim: ts=2 sts=2 sw=2 et

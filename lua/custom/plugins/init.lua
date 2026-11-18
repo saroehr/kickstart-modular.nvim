@@ -36,4 +36,50 @@ return {
     event = 'BufReadPre',
     opts = {},
   },
+  { -- Pretty list of diagnostics, references, quickfix, and more
+    'folke/trouble.nvim',
+    cmd = 'Trouble',
+    opts = {},
+    keys = {
+      { '<leader>xx', '<cmd>Trouble diagnostics toggle<cr>', desc = 'Diagnostics (Trouble)' },
+      { '<leader>xX', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>', desc = 'Buffer diagnostics (Trouble)' },
+      { '<leader>xs', '<cmd>Trouble symbols toggle focus=false<cr>', desc = 'Symbols (Trouble)' },
+      { '<leader>xq', '<cmd>Trouble qflist toggle<cr>', desc = 'Quickfix list (Trouble)' },
+    },
+  },
+  { -- A terminal you toggle with one key
+    'akinsho/toggleterm.nvim',
+    version = '*',
+    opts = {
+      open_mapping = [[<c-\>]], -- Ctrl-\ opens and closes the terminal
+      direction = 'horizontal',
+      size = 15,
+    },
+  },
+  { -- Better code folding (collapse functions and classes)
+    'kevinhwang91/nvim-ufo',
+    dependencies = { 'kevinhwang91/promise-async' },
+    event = 'VeryLazy',
+    init = function()
+      vim.o.foldcolumn = '1'
+      vim.o.foldlevel = 99 -- Start with everything unfolded
+      vim.o.foldlevelstart = 99
+      vim.o.foldenable = true
+    end,
+    config = function()
+      require('ufo').setup {
+        provider_selector = function()
+          return { 'treesitter', 'indent' }
+        end,
+      }
+      vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = 'Open all folds' })
+      vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = 'Close all folds' })
+    end,
+  },
+  { -- Prettier Markdown in the buffer
+    'MeanderingProgrammer/render-markdown.nvim',
+    ft = { 'markdown' },
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    opts = {},
+  },
 }

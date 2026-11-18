@@ -17,6 +17,14 @@ return {
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
+      -- Tab-style line along the top showing open files (buffers)
+      require('mini.tabline').setup { show_icons = vim.g.have_nerd_font }
+
+      -- Buffer shortcuts (same keys as before)
+      vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = 'Next buffer' })
+      vim.keymap.set('n', '[b', '<cmd>bprevious<cr>', { desc = 'Previous buffer' })
+      vim.keymap.set('n', '<leader>bc', '<cmd>bdelete<cr>', { desc = '[B]uffer [C]lose' })
+
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin

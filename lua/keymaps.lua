@@ -51,15 +51,19 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- Open help windows in a vertical split on the right
+-- Open help windows in a vertical split on the right, 30% wide
 vim.api.nvim_create_autocmd('FileType', {
   desc = 'Open help in a vertical split on the right',
   group = vim.api.nvim_create_augroup('kickstart-help-vertical', { clear = true }),
   pattern = 'help',
   callback = function()
     vim.cmd 'wincmd L'
+    vim.cmd('vertical resize ' .. math.floor(vim.o.columns * 0.30)) -- 30% of the terminal width
   end,
 })
+
+-- Space h h: start a help lookup (type the topic, press Enter); it opens in the right sidebar
+vim.keymap.set('n', '<leader>hh', ':help ', { desc = '[H]elp (right sidebar)' })
 
 -- Quit the current window (:q refuses if there are unsaved changes)
 vim.keymap.set('n', '<leader>bq', '<cmd>q<cr>', { desc = '[B]uffer [Q]uit window' })

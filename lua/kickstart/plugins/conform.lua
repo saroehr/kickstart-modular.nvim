@@ -29,8 +29,16 @@ return {
           }
         end
       end,
+      formatters = {
+        shfmt = { prepend_args = { '-i', '2' } }, -- 2-space indent
+        -- zsh needs the zsh dialect flag
+        shfmt_zsh = { command = 'shfmt', args = { '-ln', 'zsh', '-i', '2' }, stdin = true },
+      },
       formatters_by_ft = {
         lua = { 'stylua' },
+        sh = { 'shfmt' },
+        bash = { 'shfmt' },
+        zsh = { 'shfmt_zsh' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --

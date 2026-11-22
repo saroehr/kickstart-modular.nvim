@@ -5,8 +5,26 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
+      -- zsh: ShellCheck does not support zsh, so use zsh's own syntax check (`zsh -n`, same as `zlint`)
+      lint.linters.zsh_n = {
+        name = 'zsh_n',
+        cmd = 'zsh',
+        stdin = false,
+        append_fname = true,
+        args = { '-n' },
+        stream = 'stderr',
+        ignore_exitcode = true, -- zsh -n exits non-zero when it finds errors
+        parser = require('lint.parser').from_pattern('^[^:]+:(%d+): (.+)$', { 'lnum', 'message' }, nil, {
+          source = 'zsh -n',
+          severity = vim.diagnostic.severity.ERROR,
+        }),
+      }
+
       lint.linters_by_ft = {
         -- markdown = { 'markdownlint' }, -- Disabled: the markdownlint tool is not installed
+        sh = { 'shellcheck' },
+        bash = { 'shellcheck' },
+        zsh = { 'zsh_n' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,

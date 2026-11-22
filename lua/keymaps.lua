@@ -68,4 +68,7 @@ vim.keymap.set('n', '<leader>hh', ':help ', { desc = '[H]elp (right sidebar)' })
 -- Quit the current window (:q refuses if there are unsaved changes)
 vim.keymap.set('n', '<leader>bq', '<cmd>q<cr>', { desc = '[B]uffer [Q]uit window' })
 
+-- Quit all of Neovim (:qa refuses if any file has unsaved changes)
+vim.keymap.set('n', '<leader>bQ', '<cmd>qa<cr>', { desc = '[B]uffer [Q]uit Neovim' })
+
 -- vim: ts=2 sts=2 sw=2 et

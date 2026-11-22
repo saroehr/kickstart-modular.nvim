@@ -47,11 +47,14 @@ return {
       { '<leader>xq', '<cmd>Trouble qflist toggle<cr>', desc = 'Quickfix list (Trouble)' },
     },
   },
-  { -- A terminal you toggle with one key
+  { -- A terminal you toggle with Space t t (no global Ctrl-\ mapping, which clashed with floating windows)
     'akinsho/toggleterm.nvim',
     version = '*',
+    cmd = { 'ToggleTerm', 'TermExec' },
+    keys = {
+      { '<leader>tt', '<cmd>ToggleTerm<cr>', desc = '[T]oggle [T]erminal' },
+    },
     opts = {
-      open_mapping = [[<c-\>]], -- Ctrl-\ opens and closes the terminal
       direction = 'horizontal',
       size = 15,
     },

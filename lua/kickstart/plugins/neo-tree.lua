@@ -17,8 +17,8 @@ return {
   opts = function()
     return {
       window = {
-        -- One third of the terminal width
-        width = math.floor(vim.o.columns * 0.33),
+        -- 30% of the terminal width
+        width = math.floor(vim.o.columns * 0.30),
       },
       filesystem = {
         window = {

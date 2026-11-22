@@ -13,17 +13,20 @@ return {
   keys = {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
-  opts = {
-    window = {
-      -- One third of the terminal width, calculated when nvim starts
-      width = math.floor(vim.o.columns * 0.33),
-    },
-    filesystem = {
+  -- A function, so the width is calculated when the plugin loads (first use), not at startup
+  opts = function()
+    return {
       window = {
-        mappings = {
-          ['\\'] = 'close_window',
+        -- One third of the terminal width
+        width = math.floor(vim.o.columns * 0.33),
+      },
+      filesystem = {
+        window = {
+          mappings = {
+            ['\\'] = 'close_window',
+          },
         },
       },
-    },
-  },
+    }
+  end,
 }

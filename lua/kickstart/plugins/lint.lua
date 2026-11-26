@@ -22,6 +22,7 @@ return {
 
       lint.linters_by_ft = {
         -- markdown = { 'markdownlint' }, -- Disabled: the markdownlint tool is not installed
+        lua = { 'selene' }, -- config: selene.toml + neovim.yml in the config root
         sh = { 'shellcheck' },
         bash = { 'shellcheck' },
         zsh = { 'zsh_n' },

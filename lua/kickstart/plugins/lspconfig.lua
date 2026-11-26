@@ -257,6 +257,7 @@ return {
         'stylua', -- Used to format Lua code
         'shfmt', -- Used to format shell scripts (sh, bash, zsh)
         'shellcheck', -- Used to lint sh and bash scripts (not zsh)
+        'selene', -- Used to lint Lua code (see selene.toml / neovim.yml)
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

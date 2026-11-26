@@ -1,0 +1,5 @@
+std = "neovim"
+
+[lints]
+# lazy.nvim plugin specs mix positional and keyed entries, e.g. { 'owner/repo', event = ... }
+mixed_table = "allow"
